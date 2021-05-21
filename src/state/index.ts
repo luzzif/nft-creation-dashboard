@@ -4,7 +4,6 @@ import { save, load } from 'redux-localstorage-simple'
 import { applicationReducer } from './application/reducer'
 import { userReducer } from './user/reducer'
 import { transactionsReducer } from './transactions/reducer'
-import { multiChainLinksReducer } from './multi-chain-links/reducer'
 
 const PERSISTED_KEYS: string[] = ['user', 'transactions']
 
@@ -14,13 +13,12 @@ export const store = configureStore({
     application: applicationReducer,
     user: userReducer,
     transactions: transactionsReducer,
-    multiChainLinks: multiChainLinksReducer
   },
   middleware: [
     ...getDefaultMiddleware({ thunk: false }),
-    save({ states: PERSISTED_KEYS, namespace: persistenceNamespace })
+    save({ states: PERSISTED_KEYS, namespace: persistenceNamespace }),
   ],
-  preloadedState: load({ states: PERSISTED_KEYS, namespace: persistenceNamespace })
+  preloadedState: load({ states: PERSISTED_KEYS, namespace: persistenceNamespace }),
 })
 
 export type AppState = ReturnType<typeof store.getState>

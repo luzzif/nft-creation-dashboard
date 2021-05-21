@@ -1,3 +1,3 @@
-# Carrot frontend
+# NFT creation frontend
 
-Frontend for the Carrot platform.
+Frontend for the NFT creation platform.

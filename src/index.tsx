@@ -8,7 +8,6 @@ import { store } from './state'
 import { ApplicationUpdater } from './state/application/updater'
 import { TransactionsUpdater } from './state/transactions/updater'
 import { UserUpdater } from './state/user/updater'
-import { MultiChainLinksUpdater } from './state/multi-chain-links/updater'
 import { Web3Provider } from '@ethersproject/providers'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,7 +21,6 @@ ReactDOM.render(
         <TransactionsUpdater />
         <HashRouter>
           <UserUpdater />
-          <MultiChainLinksUpdater />
           <App />
         </HashRouter>
       </Provider>

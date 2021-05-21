@@ -1,13 +1,12 @@
 import { BigNumber } from '@ethersproject/bignumber'
-import { ChainId } from 'carrot-sdk'
 import { getAddress } from 'ethers/lib/utils'
 
-const ETHERSCAN_PREFIXES: { [chainId in ChainId]: string } = {
-  [ChainId.MAINNET]: '',
-  [ChainId.RINKEBY]: 'rinkeby.',
+const ETHERSCAN_PREFIXES: { [chainId in number]: string } = {
+  1: '',
+  4: 'rinkeby.',
 }
 
-const getExplorerPrefix = (chainId: ChainId) => {
+const getExplorerPrefix = (chainId: number) => {
   switch (chainId) {
     default:
       return `https://${ETHERSCAN_PREFIXES[chainId] || ETHERSCAN_PREFIXES[1]}etherscan.io`
@@ -15,7 +14,7 @@ const getExplorerPrefix = (chainId: ChainId) => {
 }
 
 export function getExplorerLink(
-  chainId: ChainId,
+  chainId: number,
   data: string,
   type: 'transaction' | 'token' | 'address' | 'block'
 ): string {
